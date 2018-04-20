@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: your.own.fqdn
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    kubernetes.io/tls-acme: "true"
+  namespace: ingress-nginx
+spec:
+  tls:
+  - hosts:
+    - your.own.fqdn
+    secretName: your-own-fqdn-tls
+
+  rules:
+  - host: your.own.fqdn
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: default-http-backend
+          servicePort: 80

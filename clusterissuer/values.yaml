@@ -1,0 +1,6 @@
+issuer:
+  name: letsencrypt-prod-cluster-issuer
+  namespace: ingress-nginx
+  url: https://acme-v01.api.letsencrypt.org/directory
+  email: your.name@email.com
+  secretName: letsencrypt-prod

@@ -1,0 +1,16 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: {{ template "cert.name" . }}
+  namespace: {{ .Values.certificate.namespace }}
+spec:
+  secretName: {{ template "cert.name" . }}-tls
+  issuerRef:
+    name: {{ .Values.certificate.secretName }}
+    kind: ClusterIssuer
+  commonName: {{ .Values.certificate.domain }}
+  acme:
+    config:
+    - http01: {}
+      domains:
+      - {{ .Values.certificate.domain }}

@@ -1,0 +1,4 @@
+certificate:
+  namespace: ingress-nginx
+  domain: your.own.fqdn
+  clusterIssuer: letsencrypt-prod-cluster-issuer
